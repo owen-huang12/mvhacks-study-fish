@@ -1,8 +1,6 @@
 import { useState } from "react";
 import blueFish from "./pixel fish/blueFish.png";
 import blueGoldFish from "./pixel fish/blueGoldFish.png";
-import blueOctopus from "./pixel fish/blueOctopus.png";
-import bluePufferFish from "./pixel fish/bluePufferFish.png";
 import darkBlueDolphin from "./pixel fish/darkBlueDolphin.png";
 import goldenFish from "./pixel fish/goldenFish.png";
 import greenYellowFish from "./pixel fish/greenYellowFish.png";
@@ -11,12 +9,10 @@ import jellyFish from "./pixel fish/jellyFish.png";
 import lightBlueDolphin from "./pixel fish/lightBlueDolphin.png";
 import nemoFish from "./pixel fish/nemoFish.png";
 import nemoFish2 from "./pixel fish/nemoFish2.png";
-import orca from "./pixel fish/orca.png";
 import seaHorse from "./pixel fish/seaHorse.png";
 import shark from "./pixel fish/shark.png";
 import tuna from "./pixel fish/tuna.png";
 import turtle from "./pixel fish/turtle.png";
-import whale from "./pixel fish/whale.png";
 
 const FISH_COLLECTION = [
   {
@@ -62,12 +58,6 @@ const FISH_COLLECTION = [
     facts: ["Can recognise their owners.", "Their scales reflect light uniquely.", "Ancient Chinese royalty kept them in jade bowls."],
   },
   {
-    id: "bluePufferFish", name: "Puffer Fish", img: bluePufferFish, requiresMin: 180,
-    scientific: "Arothron caeruleopunctatus",
-    blurb: "The Blue-spotted Puffer inflates itself with water to appear larger when threatened. Its organs contain tetrodotoxin.",
-    facts: ["Can inflate to three times its size.", "Contains enough toxin to kill 30 humans.", "Despite this, it is a delicacy in Japan."],
-  },
-  {
     id: "jellyFish", name: "Jellyfish", img: jellyFish, requiresMin: 240,
     scientific: "Aurelia aurita",
     blurb: "The Moon Jellyfish is found in every ocean. It has no brain, no heart, and no bones — yet has survived for 500 million years.",
@@ -78,12 +68,6 @@ const FISH_COLLECTION = [
     scientific: "Hippocampus hippocampus",
     blurb: "The Short-snouted Seahorse is one of the few animals where the male carries and gives birth to offspring.",
     facts: ["Males give birth to up to 2,000 young.", "They mate for life and greet each other daily.", "They have no stomach — they must eat constantly."],
-  },
-  {
-    id: "blueOctopus", name: "Octopus", img: blueOctopus, requiresMin: 360,
-    scientific: "Hapalochlaena lunulata",
-    blurb: "The Blue-ringed Octopus is one of the most venomous marine animals in the world, yet is only the size of a golf ball.",
-    facts: ["Its venom has no antidote.", "The rings glow bright blue when threatened.", "Despite its danger, it is very shy."],
   },
   {
     id: "lightBlueDolphin", name: "Dolphin", img: lightBlueDolphin, requiresMin: 420,
@@ -104,22 +88,10 @@ const FISH_COLLECTION = [
     facts: ["They are covered in barnacles and whale lice.", "They feed by filtering sediment from the seafloor.", "Once hunted to near extinction, they have largely recovered."],
   },
   {
-    id: "whale", name: "Blue Whale", img: whale, requiresMin: 600,
-    scientific: "Balaenoptera musculus",
-    blurb: "The Blue Whale is the largest animal ever known to have existed. Its heart alone is the size of a small car.",
-    facts: ["Can reach 30 metres in length.", "Its call can be heard 1,600 km away.", "A blue whale calf gains 90 kg a day on mother's milk."],
-  },
-  {
     id: "shark", name: "Shark", img: shark, requiresMin: 720,
     scientific: "Carcharodon carcharias",
     blurb: "The Great White Shark is the ocean's apex predator. Despite its fearsome reputation, it rarely targets humans intentionally.",
     facts: ["They can detect one drop of blood in 100 litres of water.", "Their teeth are replaced throughout their lifetime.", "They have been on Earth for over 400 million years."],
-  },
-  {
-    id: "orca", name: "Orca", img: orca, requiresMin: 900,
-    scientific: "Orcinus orca",
-    blurb: "The Orca, or Killer Whale, is actually the largest member of the dolphin family. They hunt cooperatively in tight family pods.",
-    facts: ["Each pod has its own unique dialect.", "They are one of the few animals that undergo menopause.", "They have been observed teaching hunting techniques to their young."],
   },
   {
     id: "turtle", name: "Sea Turtle", img: turtle, requiresMin: 1200,

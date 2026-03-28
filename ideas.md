@@ -29,3 +29,27 @@ underwater theme (lots of blue, maybe seaweed, fish, bubbles, treasure )
     fishes that we are going to have for the project
      - goldfish
      -
+
+  // this is to set the total minutes
+  chrome.storage.local.get("gameState", (r) => {
+    r.gameState.totalMinutes = 120; // change this number
+    chrome.storage.local.set({ gameState: r.gameState });
+  });
+  
+  // this is to see the current state
+  chrome.storage.local.get(null, console.log)
+  
+  // this is to see the achievements
+  chrome.storage.local.get("gameState", (r) => {
+    r.gameState.unlockedAchievements = ["firstDive", "gettingDeep"];
+    chrome.storage.local.set({ gameState: r.gameState });
+  });
+  
+  // this is to unlock specific fishes
+  chrome.storage.local.get("gameState", (r) => {
+    r.gameState.unlockedFish = ["blueFish", "nemoFish", "tuna", "shark"];
+    chrome.storage.local.set({ gameState: r.gameState });
+  });
+  
+  // reset the gameState
+  chrome.storage.local.remove("gameState")
