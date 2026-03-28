@@ -20,13 +20,13 @@ const GIF_MAP = {
   tuna:            { gif: tunaGif,         size: 70, facesRight: true },
   blueGoldFish:    { gif: blueGoldFishGif, size: 65 },
   greenYellowFish: { gif: greenYellowGif,  size: 65, facesRight: true },
-  goldenFish:      { gif: goldenFishGif,   size: 65 },
-  jellyFish:       { gif: jellyFishGif,    size: 65, facesRight: true },
+  goldenFish:      { gif: goldenFishGif,   size: 50 },
+  jellyFish:       { gif: jellyFishGif,    size: 33, facesRight: true },
   seaHorse:        { gif: seaHorseGif,     size: 55 },
   lightBlueDolphin:{ gif: dolphinGif,      size: 90, facesRight: true },
   darkBlueDolphin: { gif: dolphinGif,      size: 90, facesRight: true },
   greyWhale:       { gif: greyWhaleGif,    size: 110 },
-  shark:           { gif: sharkGif,        size: 100 },
+  shark:           { gif: sharkGif,        size: 50 },
   turtle:          { gif: turtleGif,       size: 75, facesRight: true },
 };
 

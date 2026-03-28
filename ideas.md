@@ -31,10 +31,10 @@ underwater theme (lots of blue, maybe seaweed, fish, bubbles, treasure )
      -
 
   // this is to set the total minutes 
-    chrome.storage.local.get("gameState", (r) => {
-      r.gameState.totalMinutes = 120; // change this number
-      chrome.storage.local.set({ gameState: r.gameState });
-    });
+  chrome.storage.local.get("gameState", (r) => {
+    r.gameState.totalMinutes = 120; // change this number
+    chrome.storage.local.set({ gameState: r.gameState });
+  });
     
   // this is to see the current state
   chrome.storage.local.get(null, console.log)
