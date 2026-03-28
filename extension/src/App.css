@@ -1,0 +1,330 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.page-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.page {
+    padding: 16px;
+    color: #3a3a5c;
+}
+
+/* ── Fish sprite ────────────────────────────────────── */
+.fish-sprite img {
+    image-rendering: pixelated;
+    display: block;
+}
+
+.fish-placeholder {
+    width: 100%;
+    height: 175px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 2px dashed rgba(58, 58, 92, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: rgba(58, 58, 92, 0.5);
+}
+
+/* ── study main page styling ────────────────────────── */
+
+.timer-wrapper {
+    width: 100%;
+    height: 175px;
+    background: #7080c0;
+    border: 3px solid #4a5a9a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 11px;
+    color: rgba(58, 58, 92, 0.5);
+}
+
+/* ── h1 and page styling ────────────────────────────── */
+h1 {
+    color: #565954;
+}
+
+/* ── Inner tabs (stats page) ────────────────────────── */
+.inner-tabs {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    margin-bottom: 14px;
+}
+
+.inner-tab-btn {
+    background: none;
+    border: 2px solid #4a5a9a;
+    border-radius: 4px;
+    color: #4a5a9a;
+    font-family: "LowresPixel", monospace;
+    font-size: 11px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition:
+        background 0.15s,
+        color 0.15s;
+}
+
+.inner-tab-btn:hover {
+    background: rgba(74, 90, 154, 0.15);
+}
+
+.inner-tab-btn.active {
+    background: #4a5a9a;
+    color: #ffffff;
+}
+
+/* ── Achievements ────────────────────────────────────── */
+.achievements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.achievement-card {
+    border: 2px solid #4a5a9a;
+    border-radius: 4px;
+    padding: 12px 14px;
+    background: #8a8fa8;
+}
+
+.achievement-card.unlocked {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.achievement-title {
+    font-family: "LowresPixel", monospace;
+    font-size: 14px;
+    color: #2a2a3c;
+    margin-bottom: 4px;
+}
+
+.achievement-hint {
+    font-family: "LowresPixel", monospace;
+    font-size: 12px;
+    color: #4a4a5c;
+}
+
+/* ── Collection ─────────────────────────────────────── */
+.collection-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.collection-card {
+    border: 2px dashed rgba(58, 58, 92, 0.3);
+    border-radius: 4px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.collection-card-img-wrapper {
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+
+.collection-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.collection-card-img.locked-img {
+    filter: brightness(0.3);
+}
+
+.collection-card:has(.locked-img) {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.locked-question {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "LowresPixel", monospace;
+    font-size: 28px;
+    color: #ffffff;
+    pointer-events: none;
+}
+
+.collection-card-name {
+    font-family: "LowresPixel", monospace;
+    font-size: 13px;
+    color: #2a2a3c;
+    text-align: center;
+}
+
+.collection-card-status {
+    font-family: "LowresPixel", monospace;
+    font-size: 11px;
+    color: #4a4a5c;
+    text-align: center;
+}
+
+/* ── Fish modal ─────────────────────────────────────── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 20, 50, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal-box {
+    background: #b8c8e8;
+    border: 2px dashed rgba(58, 58, 92, 0.4);
+    border-radius: 6px;
+    padding: 18px 16px 14px;
+    width: 300px;
+    max-height: 440px;
+    overflow-y: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #4a5a9a;
+    cursor: pointer;
+    font-family: "LowresPixel", monospace;
+    line-height: 1;
+}
+
+.modal-close:hover { color: #2a2a3c; }
+
+.modal-scientific {
+    font-family: "LowresPixel", monospace;
+    font-size: 11px;
+    color: #4a5a9a;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.modal-img-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.modal-img-wrapper.locked { filter: brightness(0.25); }
+
+.modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.modal-locked-question {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "LowresPixel", monospace;
+    font-size: 48px;
+    color: #ffffff;
+    filter: brightness(4);
+}
+
+.modal-name {
+    font-family: "LowresPixel", monospace;
+    font-size: 16px;
+    color: #2a2a3c;
+    text-align: center;
+}
+
+.modal-blurb {
+    font-family: "LowresPixel", monospace;
+    font-size: 11px;
+    color: #3a3a5c;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.modal-facts {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-facts li {
+    font-family: "LowresPixel", monospace;
+    font-size: 10px;
+    color: #3a3a5c;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    padding: 5px 8px;
+    line-height: 1.4;
+}
+
+.modal-facts li::before { content: "› "; }
+
+.modal-unlock-hint {
+    font-family: "LowresPixel", monospace;
+    font-size: 12px;
+    color: #4a5a9a;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* ── Bottom nav ─────────────────────────────────────── */
+.bottom-nav {
+    display: flex;
+    background: #7080c0;
+    border-top: 3px solid #4a5a9a;
+    flex-shrink: 0;
+}
+
+.nav-btn {
+    flex: 1;
+    padding: 12px 4px;
+    background: none;
+    border: none;
+    color: #d0d8f0;
+    font-family: "LowresPixel", monospace;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 1.3;
+    word-break: break-word;
+    transition: background 0.15s;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}

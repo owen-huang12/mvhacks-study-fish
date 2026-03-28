@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'LowresPixel';
+  src: url('./assets/LowresPixel-Regular.otf') format('opentype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'LowresPixel', monospace;
+  background: #a8b8d8;
+  width: 360px;
+  height: 500px;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
