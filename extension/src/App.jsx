@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import FishSprite from "./FishSprite";
 import Collection from "./Collection";
 import Achievements from "./Achievements";
 import { loadState, saveState } from "./storage";
 import BlockedSites from "./BlockedSites";
 import Stats from "./Stats";
+import StudyPage from "./StudyPage";
 
 const PAGES = ["blocked sites", "study", "stats"];
 
@@ -28,12 +28,7 @@ function App() {
   return (
     <div className="app">
       <div className="page-content">
-        {page === "study" && (
-          <StudyPage
-            gameState={gameState}
-            setGameState={setGameState}
-          />
-        )}
+        {page === "study" && <StudyPage gameState={gameState} />}
         {page === "blocked sites" && <BlockedSitesPage />}
         {page === "stats" && <StatsPage gameState={gameState} />}
       </div>
@@ -49,16 +44,6 @@ function App() {
           </button>
         ))}
       </nav>
-    </div>
-  );
-}
-
-function StudyPage({ gameState }) {
-  return (
-    <div className="page">
-      <h1>study fish</h1>
-      <FishSprite sprite={gameState.unlockedFish[0]} />
-      <div className="timer-wrapper"></div>
     </div>
   );
 }
@@ -97,11 +82,11 @@ function StatsPage({ gameState }) {
         />
       )}
       {tab === "stats" && (
-          <Stats
-            totalMinutes={gameState.totalMinutes}
-            unlockedFish={gameState.unlockedFish}
-          />
-        )}
+        <Stats
+          totalMinutes={gameState.totalMinutes}
+          unlockedFish={gameState.unlockedFish}
+        />
+      )}
     </div>
   );
 }

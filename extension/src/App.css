@@ -32,19 +32,132 @@
     color: rgba(58, 58, 92, 0.5);
 }
 
-/* ── study main page styling ────────────────────────── */
-
-.timer-wrapper {
+/* ── Study page ─────────────────────────────────────── */
+.study-page {
+    position: relative;
     width: 100%;
-    height: 175px;
-    background: #7080c0;
-    border: 3px solid #4a5a9a;
+    height: 100%;
+}
+
+.study-hero {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    image-rendering: pixelated;
+    display: block;
+}
+
+/* ── Floating timer overlay ──────────────────────────── */
+.timer-float {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 28px);
+    background: rgba(60, 72, 140, 0.82);
+    border: 2px solid rgba(160, 180, 255, 0.35);
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.timer-presets {
+    display: flex;
+    gap: 6px;
+}
+
+.timer-preset-btn {
+    padding: 3px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 3px;
+    color: #c8d4f0;
+    font-family: "LowresPixel", monospace;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.timer-preset-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.timer-preset-btn.active {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+}
+
+.timer-preset-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.timer-row {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.timer-display {
+    font-family: "LowresPixel", monospace;
+    font-size: 30px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.timer-display.finished {
+    color: #f0d080;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.timer-action-btn {
+    padding: 5px 12px;
+    background: #4a5a9a;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 3px;
+    color: #ffffff;
+    font-family: "LowresPixel", monospace;
     font-size: 11px;
-    color: rgba(58, 58, 92, 0.5);
+    cursor: pointer;
+    transition: background 0.15s;
+    min-width: 60px;
+}
+
+.timer-action-btn:hover:not(:disabled) {
+    background: #3a4a8a;
+}
+
+.timer-action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.timer-reset-btn {
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 3px;
+    color: #c8d4f0;
+    font-family: "LowresPixel", monospace;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.timer-reset-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
 }
 
 /* ── h1 and page styling ────────────────────────────── */
