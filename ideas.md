@@ -30,12 +30,12 @@ underwater theme (lots of blue, maybe seaweed, fish, bubbles, treasure )
      - goldfish
      -
 
-  // this is to set the total minutes
-  chrome.storage.local.get("gameState", (r) => {
-    r.gameState.totalMinutes = 120; // change this number
-    chrome.storage.local.set({ gameState: r.gameState });
-  });
-  
+  // this is to set the total minutes 
+    chrome.storage.local.get("gameState", (r) => {
+      r.gameState.totalMinutes = 120; // change this number
+      chrome.storage.local.set({ gameState: r.gameState });
+    });
+    
   // this is to see the current state
   chrome.storage.local.get(null, console.log)
   
@@ -53,3 +53,10 @@ underwater theme (lots of blue, maybe seaweed, fish, bubbles, treasure )
   
   // reset the gameState
   chrome.storage.local.remove("gameState")
+  
+  dolphin
+  green yellow fish
+  jellyfish
+  nemo
+  tuna
+  turtle

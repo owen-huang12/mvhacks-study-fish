@@ -19,6 +19,7 @@ export default function StudyPage({ gameState = { unlockedFish: ["blueFish"] } }
   const [isRunning, setIsRunning] = useState(false);
   const [customInput, setCustomInput] = useState("");
   const endTimeRef = useRef(null);
+  const creditedRef = useRef(0); // minutes already added to totalMinutes this session
 
   // Restore timer state from storage on mount
   useEffect(() => {
@@ -52,13 +53,21 @@ export default function StudyPage({ gameState = { unlockedFish: ["blueFish"] } }
       const remaining = Math.max(0, endTimeRef.current - Date.now());
       const secs = Math.ceil(remaining / 1000);
       setTimeLeft(secs);
+
+      const elapsed = selected * 60 - secs; // seconds elapsed this session
+      const minutesElapsed = Math.floor(elapsed / 60);
+      const newMinutes = minutesElapsed - creditedRef.current;
+      if (newMinutes > 0) {
+        creditedRef.current = minutesElapsed;
+        loadState((current) => {
+          const totalMinutes = (current.totalMinutes ?? 0) + newMinutes;
+          saveState({ ...current, totalMinutes, unlockedFish: deriveUnlockedFish(totalMinutes) });
+        });
+      }
+
       if (secs <= 0) {
         setIsRunning(false);
         saveTimer({ selectedMinutes: selected, isRunning: false, endTime: null, pausedRemaining: 0 });
-        loadState((current) => {
-          const totalMinutes = (current.totalMinutes ?? 0) + selected;
-          saveState({ ...current, totalMinutes, unlockedFish: deriveUnlockedFish(totalMinutes) });
-        });
       }
     };
     tick();
@@ -92,6 +101,7 @@ export default function StudyPage({ gameState = { unlockedFish: ["blueFish"] } }
     } else {
       const newEnd = Date.now() + timeLeft * 1000;
       endTimeRef.current = newEnd;
+      creditedRef.current = Math.floor((selected * 60 - timeLeft) / 60); // already-elapsed minutes don't count again
       setIsRunning(true);
       saveTimer({ selectedMinutes: selected, isRunning: true, endTime: newEnd, pausedRemaining: null });
     }
@@ -100,6 +110,7 @@ export default function StudyPage({ gameState = { unlockedFish: ["blueFish"] } }
   function reset() {
     setIsRunning(false);
     endTimeRef.current = null;
+    creditedRef.current = 0;
     setTimeLeft(selected * 60);
     saveTimer({ selectedMinutes: selected, isRunning: false, endTime: null, pausedRemaining: selected * 60 * 1000 });
   }
