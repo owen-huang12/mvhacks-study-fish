@@ -25,3 +25,7 @@ underwater theme (lots of blue, maybe seaweed, fish, bubbles, treasure )
     - add some sounds
     - user can name their fish 
     - one minute equals one sanddollar
+  
+    fishes that we are going to have for the project
+     - goldfish
+     -

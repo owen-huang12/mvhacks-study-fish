@@ -4,6 +4,8 @@ import FishSprite from "./FishSprite";
 import Collection from "./Collection";
 import Achievements from "./Achievements";
 import { loadState, saveState } from "./storage";
+import BlockedSites from "./BlockedSites";
+import Stats from "./Stats";
 
 const PAGES = ["blocked sites", "study", "stats"];
 
@@ -62,11 +64,7 @@ function StudyPage({ gameState }) {
 }
 
 function BlockedSitesPage() {
-  return (
-    <div className="page">
-      <h1>blocked sites</h1>
-    </div>
-  );
+  return <BlockedSites />;
 }
 
 const STATS_TABS = ["collection", "achievements", "stats"];
@@ -98,7 +96,12 @@ function StatsPage({ gameState }) {
           unlockedAchievements={gameState.unlockedAchievements}
         />
       )}
-      {tab === "stats" && <div className="user-stats"></div>}
+      {tab === "stats" && (
+          <Stats
+            totalMinutes={gameState.totalMinutes}
+            unlockedFish={gameState.unlockedFish}
+          />
+        )}
     </div>
   );
 }

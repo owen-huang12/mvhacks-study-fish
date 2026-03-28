@@ -3,8 +3,8 @@
 
 const DEFAULT_STATE = {
   totalMinutes: 0,
-  unlockedFish: ["blueFish"],   // fish ids
-  unlockedAchievements: [],     // achievement ids
+  unlockedFish: ["blueFish"], // fish ids
+  unlockedAchievements: [], // achievement ids
 };
 
 export function loadState(cb) {
