@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "DeepFocus",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["background.png", "LowresPixel-Regular.otf"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
