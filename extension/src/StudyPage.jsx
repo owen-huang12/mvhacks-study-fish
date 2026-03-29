@@ -31,8 +31,10 @@ export default function StudyPage({ gameState = { unlockedFish: ["blueFish"] } }
       if (state.isRunning && state.endTime) {
         const remaining = Math.max(0, state.endTime - Date.now());
         if (remaining > 0) {
+          const remainingSecs = Math.ceil(remaining / 1000);
           endTimeRef.current = state.endTime;
-          setTimeLeft(Math.ceil(remaining / 1000));
+          creditedRef.current = Math.floor((min * 60 - remainingSecs) / 60);
+          setTimeLeft(remainingSecs);
           setIsRunning(true);
         } else {
           // Finished while closed
